@@ -1,0 +1,186 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomOut 20s infinite alternate;
+  }
+  
+  @keyframes zoomOut {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+
+
+button img {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
+
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.divider {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 50px;
+}
+
+
+.auth-buttons button {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.google-button {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+.google-button img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.apple-button {
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+}
+
+.apple-button img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.google-button:hover, .apple-button:hover {
+    background-color: #f5f5f5;
+}
+
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: rgba(0, 0, 0, 0.9);
+    margin-left: -30px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #555;
+    margin: 0 10px;
+}
+
+.divider span {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.create-account {
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-account:hover {
+    background-color: #0d95e8;
+}
+
+
+.terms {
+    font-size: 12px;
+    color:goldenrod;
+    margin: 15px 0;
+    box-shadow: black;
+}
+
+
+
+
+.terms a {
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Login Section */
+.login-section {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.sign-in-link {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1da1f2;
+    text-decoration: none;
+}
+
+.sign-in-link:hover {
+    text-decoration: underline;
+}

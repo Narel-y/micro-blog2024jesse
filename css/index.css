@@ -1,0 +1,140 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #121212; 
+    overflow-x: hidden;
+  }
+  
+  
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+  }
+  
+  .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    z-index: 10;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.2s ease;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  .main-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    text-align: center;
+    z-index: 1;
+    padding: 0 20px;
+  }
+  
+  .main-content h1 {
+    font-size: 8rem;
+    font-weight: bold;
+    letter-spacing: 10px;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  .main-content p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    max-width: 600px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  .scroll-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  
+  .section-dark-1 {
+    background-color: #1e1e1e;
+  }
+  
+  .section-dark-2 {
+    background-color: #292929;
+  }
+  
+  .section-dark-3 {
+    background-color: #333333;
+  }
+  
+  .section-dark-4 {
+    background-color: #3d3d3d;
+  }
+  
+  .scroll-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .scroll-section p {
+    font-size: 1.5rem;
+    max-width: 700px;
+    line-height: 1.8;
+  }
+  

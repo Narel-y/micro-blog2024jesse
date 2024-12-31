@@ -1,0 +1,153 @@
+/* ============= Global & Dark Theme ============= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark-theme {
+  background-color: #15202B; 
+  color: #E1E8ED;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  min-height: 100vh;
+  display: flex;
+}
+
+
+
+
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  color: #1DA1F2;
+  font-size: 1.6rem;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1da1f2;
+}
+
+.logout-btn {
+  background: transparent;
+  color: #E1E8ED;
+  border: 1px solid #1da1f2;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s;
+}
+.logout-btn:hover {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto; 
+}
+.nav-links a {
+  color: #E1E8ED;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.nav-links a:hover {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+
+
+.main-content {
+  flex: 1; 
+  padding: 20px;
+  overflow-y: auto; 
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+
+
+.message {
+  background-color: #2a2f3a; 
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 16px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #fff; 
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #444; 
+  margin: 16px 0;
+}
+
+
+.message-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.message-username {
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.message-time {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+.message-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #1da1f2; 
+  padding: 0;
+  margin: 0;
+}
+.like-button:hover {
+  transform: scale(1.1);
+}
+
+
+span[id^="like-count-"] {
+  font-size: 1rem;
+  color: #fff;
+}
+
+

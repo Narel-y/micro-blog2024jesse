@@ -3,21 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up</title>
-    <link rel="stylesheet" href="./css/main.css">
-
-    <script src="./js/main.js"></script>
-    <script src="./js/signup.js"></script>
+    <title>Sign Up or Log In</title>
+    <link rel="stylesheet" href="./css/signup.css">
 </head>
 <body>
-    <a href="signup.html">Sign-Up</a>
-    <a href="login.html">Login</a>
-    <main>
-        <label><span>Username/Email</span><input id="username" type="email"></label>
-        <label><span>Full Name</span><input id="fullName"></label>
-        <label><span>Password</span><input id="password" type="password"></label>
-        <button id="signUpButton">Sign-Up</button>
-        <div id="output">?</div>
-    </main>
+    <div class="hero-background">
+        <img id="hero-image" src="./img/wild rune.png" alt="Mountain Image">
+      </div>
+    <div class="container">
+        <div class="auth-buttons">
+            <button class="google-button">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google Icon">Sign up with Google
+            </button>
+            
+            <button class="apple-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/30px-Apple_logo_black.svg.png" alt="Apple Icon"> Sign up with Apple
+            </button>
+            
+            
+        </div>
+        
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <button class="create-account">Create account</button>
+
+        <p class="terms">
+            By signing up, you agree to the 
+            <a href="#">Terms of Service</a> and 
+            <a href="#">Privacy Policy</a>, including 
+            <a href="#">Cookie Use</a>.
+        </p>
+
+        <div class="login-section">
+            <p>Already have an account?</p>
+            <a href="#" class="sign-in-link">Sign in</a>
+        </div>
+    </div>
+<script>
+    document.querySelector('.google-button').addEventListener('click', () => {
+        console.log('Google button clicked!');
+        window.location.href = 'index.html';
+    });
+    
+    document.querySelector('.apple-button').addEventListener('click', () => {
+        console.log('Apple button clicked!');
+        window.location.href = 'index.html';
+    });
+    
+    document.querySelector('.create-account').addEventListener('click', () => {
+        console.log('Create Account button clicked!');
+        window.location.href = 'new.html';
+    });
+    
+    document.querySelector('.sign-in-link').addEventListener('click', () => {
+        console.log('Sign In link clicked!');
+        window.location.href = 'login.html';
+    });
+    </script>
+    <script src="./js/main.js"></script>
+    <script src="./js/signup.js"></script>
+    
+    
 </body>
 </html>

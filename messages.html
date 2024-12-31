@@ -1,20 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-theme">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messages</title>
-    <link rel="stylesheet" href="./css/main.css">
-
-    <script src="./js/main.js"></script>
-    <script src="./js/messages.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Messages</title>
+  <link rel="stylesheet" href="./css/messages.css" />
 </head>
-<body>
-    <a href="signup.html">Sign-Up</a>
-    <a href="login.html">Login</a>
-    <a href="new.html">Send New Text Message</a>
+<body class="dark-theme">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <h1 class="logo-text">Zaun</h1>
+      <img
+        id="navbarProfilePic"
+        class="profile-pic"
+        src="./images/default_profile.png"
+        alt="Profile Picture"
+      />
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="signup.html">Sign-Up</a>
+      <a href="login.html">Login</a>
+      <a href="newtweet.html">Send New Text Message</a>
+      <a href="profile.html">Edit User Profile</a>
+    </div>
+  </div>
+
+  
+  <div class="main-content">
+    <h2 class="page-title">Recent Messages</h2>
     <main>
-        <div id="output">?</div>
+      <div id="output">
+        
+        <div class="message">
+          <hr>
+          <div class="message-header">
+            <strong class="message-username">GurjotS</strong>
+            <div class="message-time">
+              2024-12-13 19:04:06
+            </div>
+          </div>
+          <p>First Post</p>
+          <div class="message-footer">
+            <button class="like-button">🤍</button>
+            <span id="like-count-675c852615fee0925c8d2e52">1</span>
+          </div>
+        </div>
+      </div>
     </main>
+  </div>
+  <script src="./js/main.js"></script>
+  <script src="./js/messages.js"></script>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedPic = localStorage.getItem("profilePic");
+      const navPic = document.getElementById("navbarProfilePic");
+      if (savedPic && navPic) {
+        navPic.src = savedPic;
+      }
+    });
+  </script>
 </body>
 </html>

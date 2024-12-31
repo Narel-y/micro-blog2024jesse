@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Text</title>
-    <link rel="stylesheet" href="./css/main.css">
-
-    <script src="./js/main.js"></script>
-    <script src="./js/new.js"></script>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="./css/new.css">
 </head>
 <body>
-    <input id="textInput"><button id="sendTextButton">Send Text</button>
+    <div class="background-container">
+        <img src="./img/wild rune.png" alt="Background" class="background-img">
+    </div>
+    <div class="container">
+        <h1>Create Your Account</h1>
+        <form id="signupForm">
+            <input type="text" placeholder="Full Name" name="fullName" id="fullName" required>
+            <input type="email" placeholder="Email Address" name="email" id="email" required>
+            <input type="password" placeholder="Password" name="password" id="password" required>
+            <input type="password" placeholder="Confirm Password" name="confirmPassword" id="confirmPassword" required>
+            <button id="signUpButton" type="button">Sign-Up</button>
+            <div id="output"></div>
+        </form>
+        <div class="login-section">
+            <p>Already have an account?</p>
+            <a href="login.html" class="sign-in-link">Sign in</a>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+    <script src="./js/new.js"></script>
 </body>
 </html>

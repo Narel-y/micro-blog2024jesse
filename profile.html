@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="./css/main.css">
-
-    <script src="./js/main.js"></script>
-
+  <meta charset="UTF-8">
+  <title>My Profile Page</title>
+  <link rel="stylesheet" href="./css/profile.css" />
 </head>
-<body>
+<body class="dark-theme">
+  
+  
+  <aside class="sidebar">
+    <div class="logo-section">
+      <h2 class="logo-text">Zaun</h2>
+      
+      <a href="messages.html" class="nav-link">Back to Tweets</a>
+    </div>
+    <button id="logout" class="logout-btn">Logout</button>
+  </aside>
+
+  
+  <main class="main-content">
+    <h1 class="page-title">My Profile Page</h1>
+    
+    <div class="profile-card">
+      <div class="profile-image-section">
+        <img id="profileImage" alt="Profile Image" />
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <button id="uploadBtn" class="upload-button">Upload Picture</button>
+      </div>
+
+      <div class="profile-fields">
+        <div class="field-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" />
+        </div>
+
+        <div class="field-row">
+          <label for="bio">Bio</label>
+          <textarea id="bio" rows="2"></textarea>
+        </div>
+
+        <div class="field-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" />
+        </div>
+
+        <div class="field-row">
+          <label for="password">Password</label>
+          <input type="password" id="password" />
+        </div>
+
+        <button id="saveProfile" class="save-button">Save Profile</button>
+        <div id="responseMessage" class="response-message"></div>
+      </div>
+    </div>
+  </main>
+
+  
+  <script src="./js/profile.js"></script>
 </body>
 </html>

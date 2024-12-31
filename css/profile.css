@@ -1,0 +1,157 @@
+
+body.dark-theme {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background-color: #15202B; 
+  color: #E1E8ED;
+  min-height: 100vh;
+  display: flex;
+}
+
+
+.sidebar {
+  width: 220px;
+  background-color: #192734;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo-section {
+  margin-bottom: auto;
+}
+
+.logo-text {
+  color: #1DA1F2;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+
+.nav-link {
+  display: inline-block;
+  color: #1DA1F2;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+
+.logout-btn {
+  align-self: flex-start;
+  background: transparent;
+  color: #E1E8ED;
+  border: 1px solid #1DA1F2;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s;
+}
+.logout-btn:hover {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.profile-card {
+  background: #192734;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+.profile-image-section {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.profile-image-section img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #1DA1F2;
+}
+.upload-button {
+  background: #1DA1F2;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 0.9rem;
+}
+.upload-button:hover {
+  background: #0a74b9;
+}
+
+/* Profile Fields */
+.profile-fields {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+.field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.field-row label {
+  color: #E1E8ED;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.field-row input,
+.field-row textarea {
+  background: #15202B;
+  border: 1px solid #1DA1F2;
+  padding: 8px;
+  border-radius: 6px;
+  color: #E1E8ED;
+  font-size: 1rem;
+}
+.save-button {
+  background: #1DA1F2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: flex-start;
+  transition: background 0.3s;
+}
+.save-button:hover {
+  background: #0a74b9;
+}
+
+.response-message {
+  margin-top: 5px;
+  color: #55FF55;
+  font-weight: bold;
+  min-height: 20px;
+}

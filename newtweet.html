@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zaun</title>
+
+  <script src="./js/profile.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/newtweet.js"></script>
+
+ 
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+   
+    body {
+      background: url("./img/wild\ rune.png") no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      height: 100vh;
+    }
+
+   
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.75); /* Slightly transparent black */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    nav h1 {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+    
+    nav .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+
+   
+    #textContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    #textInput {
+      width: 300px;
+      padding: 10px;
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+
+    #sendTextButton {
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+   
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    footer .social a {
+      color: #fff;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <nav>
+    <h1>Zaun</h1>
+    <div class="nav-links">
+    <a href="messages.html">Posts</a>
+     <a href="profile.html">Profile</a>
+    </div>
+  </nav>
+
+  
+  <div id="textContainer">
+    <input id="textInput" type="text" placeholder="What weigheth upon thy mind?" />
+    <button id="sendTextButton">Post</button>
+  </div>
+
+ 
+  <footer>
+    <p>&copy; 2024 Zaun. All rights reserved.</p>
+    <div class="social">
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+</body>
+</html>

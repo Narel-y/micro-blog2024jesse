@@ -3,12 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/main.js"></script>
+    <title>Zaun - Power of Words</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .main-content h1 {
+            font-size: 8rem;
+            font-weight: bold;
+            letter-spacing: 10px;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-content p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            max-width: 600px;
+            line-height: 1.8;
+            color: goldenrod;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: goldenrod;
+        }
+
+        .scroll-section p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            line-height: 1.8;
+            color: aqua;
+        }
+    </style>
+   
 </head>
 <body>
-    <a href="signup.html">Sign-Up</a>
-    <a href="login.html">Login</a>
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="./bacground vid/wild runes.mp4" type="video/mp4">
+            
+        </video>
+    </div>
+
+    <div class="navbar">
+        <a href="login.html">Login</a>
+        <a href="signup.html">sign up</a>
+        
+    </div>
+
+    <div class="main-content">
+        <h1>Zaun</h1>
+        <p>"Words are the threads that weave the fabric of civilizations."</p>
+    </div>
+
+    <div class="scroll-section fade-in-section" style="background-color: #1e1e1e;">
+        <h2>"The pen is mightier than the sword."</h2>
+        <p>An eternal truth whispered across centuries, empowering minds to conquer hearts and ideas to shape worlds.</p>
+    </div>
+
+    <div class="scroll-section fade-in-section" style="background-color: #292929;">
+        <h2>"Words are the keys to the soul."</h2>
+        <p>Through ancient tongues and scripts, humanity unveiled its deepest desires, fears, and dreams.</p>
+    </div>
+
+    <div class="scroll-section fade-in-section" style="background-color: #333333;">
+        <h2>"Echoes of the past build futures untold."</h2>
+        <p>In every word lies the power to inspire, to challenge, and to create legacies that endure forever.</p>
+    </div>
+
+    <div class="scroll-section fade-in-section" style="background-color: #3d3d3d;">
+        <h2>"Zaun: Where every word matters."</h2>
+        <p>Join a community that reveres the art of expression, forging connections through the timeless power of words.</p>
+    </div>
+    <script>
+        
+        
+        document.addEventListener("DOMContentLoaded", function () {
+          
+          const sections = document.querySelectorAll(".fade-in-section");
+          const observer = new IntersectionObserver((entries, obs) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add("visible");
+                      obs.unobserve(entry.target);
+                  }
+              });
+          }, { threshold: 0.1 });
+    
+          sections.forEach(section => observer.observe(section));
+    
+          
+          const video = document.getElementById("bgVideo");
+          video.playbackRate = 0.4; 
+        });
+    
+        </script>
 </body>
 </html>

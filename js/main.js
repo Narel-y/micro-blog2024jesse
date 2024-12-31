@@ -1,101 +1,145 @@
+// main.js
+
 const BASE_URL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
-
 const NO_AUTH_HEADERS = { 'accept': 'application/json', 'Content-Type': 'application/json' };
-// ONLY 2 - INSECURE TOKEN FREE ACTIONS
 
-//create user - sign up
-/*
-curl -X 'POST' \
-  'http://microbloglite.us-east-2.elasticbeanstalk.com/api/users' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "username": "string",
-  "fullName": "string",
-  "password": "string"
-}'
-*/
+// Sign-Up Function
 async function signUp(username, fullName, password) {
-    const payload = JSON.stringify(
-        { "username": username, "fullName": fullName, "password": password }
-    );
+    const payload = JSON.stringify({
+        username: username, // Typically the email or unique username
+        fullName: fullName,
+        password: password,
+    });
 
     const response = await fetch(BASE_URL + "/api/users", {
         method: "POST",
         headers: NO_AUTH_HEADERS,
-        body: payload
-    }); //end fetch
+        body: payload,
+    });
 
-    //TODO check for error response status codes
-    if (response.status != 201) {
-        console.log(response.status, response.statusText);
-        return response.statusText;
+    // Check for "Conflict" status (username already taken)
+    if (response.status === 409) {
+        console.error("Sign-Up Conflict: Username or email already taken.");
+        return "Conflict";
     }
-    const object = await response.json(); //COnvert body to object
+
+    // Handle any other non-success response
+    if (response.status !== 201) {
+        console.error("Sign-Up Error:", response.statusText);
+        return null;
+    }
+
+    // Parse and return the successful response object
+    const object = await response.json();
     return object;
 }
 
-
-//login and store username and token received
-/*
-curl -X 'POST' \
-  'http://microbloglite.us-east-2.elasticbeanstalk.com/auth/login' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "username": "string",
-  "password": "string"
-}'
-*/
+// Login Function
 async function login(username, password) {
-    const payload = JSON.stringify({ "username": username, "password": password });
+    const payload = JSON.stringify({ username, password });
     const response = await fetch(BASE_URL + "/auth/login", {
         method: "POST",
         headers: NO_AUTH_HEADERS,
-        body: payload
-    }); //end fetch
+        body: payload,
+    });
 
-    //TODO check for error response status codes
-    if (response.status != 200) {
-        console.log(response.status, response.statusText);
-        return response.statusText;
+    if (response.status !== 200) {
+        console.error("Login Error:", response.status, response.statusText);
+        return { error: "Invalid credentials or server error." };
     }
-    const object = await response.json(); //COnvert body to object
-    localStorage.token = object.token;
-    localStorage.username = object.username;
+
+    const object = await response.json();
+    localStorage.token = object.token; // Save token
+    localStorage.username = object.username; // Save username
     return object;
 }
 
-// ALL THE OTHERS NEED A TOKEN IN THE HEADER
+// Headers With Authorization
 function headersWithAuth() {
-    //SAME AS NO AUTH BUT WITH AUTH ADDED
-    return { 
-        ...NO_AUTH_HEADERS, 
-        'Authorization': `Bearer ${localStorage.token}`,
+    if (!localStorage.token) {
+        console.error("Authorization token missing.");
+        return NO_AUTH_HEADERS; // Fallback to no auth headers
     }
+    return {
+        ...NO_AUTH_HEADERS,
+        Authorization: `Bearer ${localStorage.token}`,
+    };
 }
-// get secure list of message using token
+
+// Fetch Secure List of Messages
 async function getMessageList() {
     const LIMIT_PER_PAGE = 1000;
     const OFFSET_PAGE = 0;
     const queryString = `?limit=${LIMIT_PER_PAGE}&offset=${OFFSET_PAGE}`;
 
-    const response = await fetch(
-        BASE_URL + "/api/posts" + queryString, {
-        method: "GET",
-        headers: headersWithAuth(),
-    });
-    const object = await response.json();
-    return object;
+    try {
+        const response = await fetch(
+            BASE_URL + "/api/posts" + queryString,
+            {
+                method: "GET",
+                headers: headersWithAuth(),
+            }
+        );
+        if (!response.ok) {
+            console.error("Error fetching messages:", response.statusText);
+            return [];
+        }
+        const object = await response.json();
+        return object;
+    } catch (error) {
+        console.error("Network error while fetching messages:", error);
+        return [];
+    }
 }
 
-async function sendText(text){
-    const response = await fetch(
-        BASE_URL + "/api/posts", { // endpoint for messages/posts
-        method: "POST", //CREATE
+// Send a New Post
+async function sendText(text) {
+    try {
+        const response = await fetch(
+            BASE_URL + "/api/posts",
+            {
+                method: "POST",
+                headers: headersWithAuth(),
+                body: JSON.stringify({ text }),
+            }
+        );
+        if (!response.ok) {
+            console.error("Error sending post:", response.statusText);
+            return null;
+        }
+        const object = await response.json();
+        return object;
+    } catch (error) {
+        console.error("Network error while sending post:", error);
+        return null;
+    }
+}
+
+// Delete Like
+async function deleteLike(likeId) {
+    const response = await fetch(`${BASE_URL}/api/likes/${likeId}`, {
+        method: "DELETE",
         headers: headersWithAuth(),
-        body: `{"text":"${text}"}` //make json string by hand instead of stringify
     });
-    const object = await response.json();
-    return object;
+
+    if (!response.ok) {
+        console.error("Failed to delete like:", response.status, response.statusText);
+        return null;
+    }
+    return response.ok;
+}
+
+// Send Like
+async function sendLike(postId) {
+    const response = await fetch(`${BASE_URL}/api/likes`, {
+        method: "POST",
+        headers: headersWithAuth(),
+        body: JSON.stringify({ postId }),
+    });
+
+    if (!response.ok) {
+        console.error("Failed to send like:", response.status, response.statusText);
+        return null;
+    }
+    return response.ok;
 }
